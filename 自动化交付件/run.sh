@@ -1,0 +1,1 @@
+newman run /Users/guohui.yu/Documents/Shopee_test.postman_collection.json --reporters cli,html,json,junit --reporter-json-export /Users/guohui.yu/Documents/task.json --reporter-junit-export /Users/guohui.yu/Documents/task.xml --reporter-html-export /Users/guohui.yu/Documents/task.html

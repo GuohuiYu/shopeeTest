@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites name="Shopee_test" tests="10" time="2.721">
+  <testsuite name="参数正确，返回结果正常" id="1cfb04ac-d388-4fc7-9ecb-94aaab39a531" tests="1" failures="0" errors="0" time="2.703">
+    <testcase name="参数正确，正常访问" time="2.703"/>
+  </testsuite>
+  <testsuite name="参数a不传" id="2eb487c0-9570-4e04-93cd-6cec72b5d3ce" tests="1" failures="0" errors="0" time="0.002">
+    <testcase name="参数a不传" time="0.002"/>
+  </testsuite>
+  <testsuite name="参数b不传" id="7f7a0987-9cdd-4f67-a888-4d02e95e7abc" tests="1" failures="0" errors="0" time="0.002">
+    <testcase name="参数b不传" time="0.002"/>
+  </testsuite>
+  <testsuite name="参数a为空" id="b2417f0c-5130-444f-834d-4e0c7e1d66ae" tests="1" failures="0" errors="0" time="0.001">
+    <testcase name="参数a为空" time="0.001"/>
+  </testsuite>
+  <testsuite name="参数b为空" id="c2ca169b-e5c1-441d-8d64-62bc68b1a708" tests="1" failures="0" errors="0" time="0.001">
+    <testcase name="参数b为空" time="0.001"/>
+  </testsuite>
+  <testsuite name="参数a传string类型" id="782d1cc4-a195-4637-8b93-070ae6ee35b6" tests="1" failures="0" errors="0" time="0.002">
+    <testcase name="参数a传string类型" time="0.002"/>
+  </testsuite>
+  <testsuite name="参数b传特殊字符" id="0fcd9c4e-497e-408f-9a55-4c815dd21ee8" tests="1" failures="0" errors="0" time="0.002">
+    <testcase name="参数b传特殊字符" time="0.002"/>
+  </testsuite>
+  <testsuite name="校验参数a的范围" id="b168a23a-0369-4cb7-aab6-c74e754cbb35" tests="1" failures="0" errors="0" time="0.005">
+    <testcase name="校验参数a的范围" time="0.005"/>
+  </testsuite>
+  <testsuite name="参数b长度验证" id="1f2f3b60-cfd7-4fb3-8529-4cc3346015d3" tests="1" failures="0" errors="0" time="0.002">
+    <testcase name="参数b长度验证" time="0.002"/>
+  </testsuite>
+  <testsuite name="参数a传特殊字符" id="3ecd633e-7be4-466f-ad45-aa40c5f2527b" tests="1" failures="0" errors="0" time="0.001">
+    <testcase name="参数a传特殊字符" time="0.001"/>
+  </testsuite>
+</testsuites>

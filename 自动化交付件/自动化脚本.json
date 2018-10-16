@@ -1,0 +1,528 @@
+{
+	"info": {
+		"_postman_id": "b6700652-64a5-42ac-b9eb-6c74842989d6",
+		"name": "\bShopee_test",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "参数正确，返回结果正常",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "fdf8510c-c18c-4f43-9cf9-0185b06276be",
+						"exec": [
+							"var data = JSON.parse(responseBody);",
+							"tests[\"参数正确，正常访问\"] = data.err_code === 0;",
+							"tests[\"参数正确，正常访问\"] = data.err_msg === \"success\";",
+							"tests[\"参数正确，正常访问\"] = data.refenence === \"No.1 is name1\";"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8099/shopee/entry_task?a=1&b=name1",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8099",
+					"path": [
+						"shopee",
+						"entry_task"
+					],
+					"query": [
+						{
+							"key": "a",
+							"value": "1"
+						},
+						{
+							"key": "b",
+							"value": "name1"
+						}
+					]
+				},
+				"description": "\b参数正确，正常访问"
+			},
+			"response": []
+		},
+		{
+			"name": "参数a\b不传",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "dc576ab2-6672-45a9-b18f-e9c384cedbe8",
+						"exec": [
+							"var data = JSON.parse(responseBody);",
+							"tests[\"参数a不传\"] = data.err_code === 11;",
+							"tests[\"参数a不传\"] = data.err_msg === \"system error\";",
+							"tests[\"参数a不传\"] = data.refenence === \"Parameter a,b must be passed\";"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8099/shopee/entry_task?b=name1",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8099",
+					"path": [
+						"shopee",
+						"entry_task"
+					],
+					"query": [
+						{
+							"key": "b",
+							"value": "name1"
+						}
+					]
+				},
+				"description": "参数a不传"
+			},
+			"response": []
+		},
+		{
+			"name": "参数b不传",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "c010b95d-0c60-4f7c-b00e-df3d33057f4a",
+						"exec": [
+							"var data = JSON.parse(responseBody);",
+							"tests[\"参数b不传\"] = data.err_code === 11;",
+							"tests[\"参数b不传\"] = data.err_msg === \"system error\";",
+							"tests[\"参数b不传\"] = data.refenence === \"Parameter a,b must be passed\";"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8099/shopee/entry_task?a=1",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8099",
+					"path": [
+						"shopee",
+						"entry_task"
+					],
+					"query": [
+						{
+							"key": "a",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "参数a为空",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "aab3df55-08d8-4859-b05a-74187bc017c3",
+						"exec": [
+							"var data = JSON.parse(responseBody);",
+							"tests[\"参数a为空\"] = data.err_code === 21;",
+							"tests[\"参数a为空\"] = data.err_msg === \"empry or wrong params\";",
+							"tests[\"参数a为空\"] = data.refenence === \"Parameter cannot be empty\";"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8099/shopee/entry_task?a=&b=name1",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8099",
+					"path": [
+						"shopee",
+						"entry_task"
+					],
+					"query": [
+						{
+							"key": "a",
+							"value": ""
+						},
+						{
+							"key": "b",
+							"value": "name1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "参数b为空",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "2fc1ee4a-7f33-4edd-870e-4172dcd66213",
+						"exec": [
+							"var data = JSON.parse(responseBody);",
+							"tests[\"参数b为空\"] = data.err_code === 21;",
+							"tests[\"参数b为空\"] = data.err_msg === \"empry or wrong params\";",
+							"tests[\"参数b为空\"] = data.refenence === \"Parameter cannot be empty\";"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8099/shopee/entry_task?a=56&b=",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8099",
+					"path": [
+						"shopee",
+						"entry_task"
+					],
+					"query": [
+						{
+							"key": "a",
+							"value": "56"
+						},
+						{
+							"key": "b",
+							"value": ""
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "参数a传string类型",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "9cd06832-dff4-4000-83da-f009dae632cf",
+						"exec": [
+							"var data = JSON.parse(responseBody);",
+							"tests[\"参数a传string类型\"] = data.err_code === 21;",
+							"tests[\"参数a传string类型\"] = data.err_msg === \"empry or wrong params\";",
+							"tests[\"参数a传string类型\"] = data.refenence === \"Incorrect parameter type\";"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8099/shopee/entry_task?a=hhhg&b=name1",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8099",
+					"path": [
+						"shopee",
+						"entry_task"
+					],
+					"query": [
+						{
+							"key": "a",
+							"value": "hhhg"
+						},
+						{
+							"key": "b",
+							"value": "name1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "参数b传特殊字符",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "37cb483a-2bf9-48a3-8e9b-5722af5e0e81",
+						"exec": [
+							"var data = JSON.parse(responseBody);",
+							"tests[\"参数b传特殊字符\"] = data.err_code === 0;",
+							"tests[\"参数b传特殊字符\"] = data.err_msg === \"success\";",
+							"tests[\"参数b传特殊字符\"] = data.refenence === \"No.1 is df^%^%^\";"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8099/shopee/entry_task?a=1&b=df^%^%^#@",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8099",
+					"path": [
+						"shopee",
+						"entry_task"
+					],
+					"query": [
+						{
+							"key": "a",
+							"value": "1"
+						},
+						{
+							"key": "b",
+							"value": "df^%^%^"
+						}
+					],
+					"hash": "@"
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "校验参数a的范围",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "39963756-354a-4ae1-a639-78d4ddfd0c91",
+						"exec": [
+							"var data = JSON.parse(responseBody);",
+							"tests[\"校验参数a的范围\"] = data.err_code === 21;",
+							"tests[\"校验参数a的范围\"] = data.err_msg === \"empry or wrong params\";",
+							"tests[\"校验参数a的范围\"] = data.refenence === \"Incorrect parameter type\";"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8099/shopee/entry_task?a=9254645445454546236&b=\bjone",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8099",
+					"path": [
+						"shopee",
+						"entry_task"
+					],
+					"query": [
+						{
+							"key": "a",
+							"value": "9254645445454546236"
+						},
+						{
+							"key": "b",
+							"value": "\bjone"
+						},
+						{
+							"key": null,
+							"value": null
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "\b参数b长度验证",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "cff98fe9-05b4-4eae-b4fc-af21c1c0f90c",
+						"exec": [
+							"var data = JSON.parse(responseBody);",
+							"tests[\"参数b长度验证\"] = data.err_code === 0;",
+							"tests[\"参数b长度验证\"] = data.err_msg === \"success\";",
+							"tests[\"参数b长度验证\"] = data.refenence === \"No.1 is namedjhfgdjsfjhdsbgjhfbgjkscvxcdkfgbdsijkhsdfnsdgfhjgj\";"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8099/shopee/entry_task?a=1&b=namedjhfgdjsfjhdsbgjhfbgjkscvxcdkfgbdsijkhsdfnsdgfhjgj",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8099",
+					"path": [
+						"shopee",
+						"entry_task"
+					],
+					"query": [
+						{
+							"key": "a",
+							"value": "1"
+						},
+						{
+							"key": "b",
+							"value": "namedjhfgdjsfjhdsbgjhfbgjkscvxcdkfgbdsijkhsdfnsdgfhjgj"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "参数a传特殊字符",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "1f3aaae4-a212-4d82-90b3-3c2c493052b7",
+						"exec": [
+							"var data = JSON.parse(responseBody);",
+							"tests[\"参数a传特殊字符\"] = data.err_code === 0;",
+							"tests[\"参数a传特殊字符\"] = data.err_msg === \"empry or wrong params\";",
+							"tests[\"参数a传特殊字符\"] = data.refenence === \"Incorrect parameter type\";"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8099/shopee/entry_task?a=$%&b=name1",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8099",
+					"path": [
+						"shopee",
+						"entry_task"
+					],
+					"query": [
+						{
+							"key": "a",
+							"value": "$%"
+						},
+						{
+							"key": "b",
+							"value": "name1"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
